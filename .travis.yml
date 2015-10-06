@@ -23,7 +23,7 @@ install:
 - cd ..
 script:
 - if [ "${VERSION:0:3}" != "3.3" ]; then pip install -U numpy; fi
-- pip install nose scipy atlas
+- pip install nose scipy
 - mkdir tmp_for_test
 - cd tmp_for_test
 - nosetests --exe -v gensim
