@@ -12,18 +12,18 @@ install:
 # Compile our own numpy from source (using Accelerate)
 - pip install numpy==$NUMPY_VERSION --no-use-wheel
 - pip install cython wheel six
-- if [ -n "$LATEST_TAG" ]; then checkout_closest_tag scikit-learn; fi
-- cd scikit-learn
+- if [ -n "$LATEST_TAG" ]; then checkout_closest_tag gensim; fi
+- cd gensim
 - python setup.py bdist_wheel
 - rename_wheels dist
 - pip install dist/*.whl
 - cd ..
 script:
 - if [ "${VERSION:0:3}" != "3.3" ]; then pip install -U numpy; fi
-- pip install nose scipy
+- pip install nose scipy atlas
 - mkdir tmp_for_test
 - cd tmp_for_test
-- nosetests --exe -v sklearn
+- nosetests --exe -v gensim
 - cd ..
 #before_deploy: cd scikit-learn/dist
 #deploy:
