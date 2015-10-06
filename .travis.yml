@@ -5,10 +5,11 @@ osx_image: xcode7
 env:
   #global: LATEST_TAG=1
   matrix:
-  - VERSION=2.7.8 NUMPY_VERSION=1.9.1
+  - VERSION=2.6.9 NUMPY_VERSION=1.9.2
+  - VERSION=2.7.9 NUMPY_VERSION=1.9.2
   - VERSION=3.3.5 NUMPY_VERSION=1.7.1
   - VERSION=3.4.1 NUMPY_VERSION=1.7.1
-  - VERSION=2.7.9 NUMPY_VERSION=1.9.2
+
 install:
 - source terryfy/travis_tools.sh
 - get_python_environment macpython $VERSION venv
