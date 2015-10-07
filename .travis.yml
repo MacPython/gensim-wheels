@@ -27,7 +27,8 @@ script:
 - pip install nose scipy
 - mkdir tmp_for_test
 - cd tmp_for_test
-- nosetests --exe -v gensim
+# TODO: make sure we test the wheel - nosetests --exe -v gensim
+- python ../setup.py test
 - cd ..
 #before_deploy: cd scikit-learn/dist
 #deploy:
