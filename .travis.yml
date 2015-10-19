@@ -31,7 +31,7 @@ script:
 - cd tmp_for_test
 #  make sure we test the wheel
 - nosetests --exe -v gensim
-# this doesn't test wheel: - python ../setup.py test
+# setup.py doesn't test wheel, just the local files: - python ../setup.py test
 - cd ..
 #before_deploy: cd scikit-learn/dist
 #deploy:
