@@ -6,7 +6,7 @@ env:
   #global: LATEST_TAG=1
   matrix:
   # 2.6, 2.7, 3.3, 3.4 and 3.5
-  - VERSION=2.6.8
+  # can't download - VERSION=2.6.8
   - VERSION=2.7.10
   - VERSION=3.3.5
   - VERSION=3.4.2
