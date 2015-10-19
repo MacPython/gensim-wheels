@@ -1,6 +1,8 @@
 [submodule "terryfy"]
 	path = terryfy
 	url = https://github.com/MacPython/terryfy.git
+	branch = develop
 [submodule "gensim"]
 	path = gensim
 	url = https://github.com/piskvorky/gensim.git
+	branch = develop
