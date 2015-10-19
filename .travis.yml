@@ -8,7 +8,7 @@ env:
   # 2.6, 2.7, 3.3, 3.4 and 3.5
   - VERSION=2.6.9 NUMPY_VERSION=1.10.1
   - VERSION=2.7.10 NUMPY_VERSION=1.10.1
-  - VERSION=3.3.6 NUMPY_VERSION=1.10.1
+  - VERSION=3.3.5 NUMPY_VERSION=1.10.1
   - VERSION=3.4.2 NUMPY_VERSION=1.10.1
   - VERSION=3.5.0 NUMPY_VERSION=1.10.1
 
@@ -17,7 +17,7 @@ install:
 - get_python_environment macpython $VERSION venv
 # Compile our own numpy from source (using Accelerate)
 - pip install numpy==$NUMPY_VERSION --no-use-wheel
-- pip install cython wheel six
+- pip install -U cython wheel six
 - if [ -n "$LATEST_TAG" ]; then checkout_closest_tag gensim; fi
 - cd gensim
 - python setup.py bdist_wheel
