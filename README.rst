@@ -1,5 +1,5 @@
-.. image:: https://travis-ci.org/tmylk/gensim-wheels.svg?branch=master
-    :target: https://travis-ci.org/tmylk/gensim-wheels
+.. image:: https://travis-ci.org/MacPython/gensim-wheels.svg?branch=master
+    :target: https://travis-ci.org/MacPython/gensim-wheels
 
 ##########################
 Gensim wheel builder
