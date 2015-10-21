@@ -3,7 +3,9 @@ language:
 os: osx
 osx_image: xcode7
 env:
-  #global: LATEST_TAG=1
+  global:
+  - REPO_DIR=gensim
+  #- BUILD_COMMIT=latest-tag  # comment out to build version in submodule
   matrix:
   # 2.6, 2.7, 3.3, 3.4 and 3.5
   # can't download - VERSION=2.6.8
@@ -16,8 +18,10 @@ install:
 - get_python_environment macpython $VERSION venv
 - pip install numpy
 - pip install -U cython wheel six
-- if [ -n "$LATEST_TAG" ]; then checkout_closest_tag gensim; fi
-- cd gensim
+- if [ -n "$BUILD_COMMIT" ]; then
+      checkout_commit $REPO_DIR $BUILD_COMMIT;
+  fi
+- cd $REPO_DIR
 - python setup.py bdist_wheel
 - rename_wheels dist
 - pip install dist/*.whl
@@ -31,13 +35,12 @@ script:
 - nosetests --exe -v gensim
 # setup.py doesn't test wheel, just the local files: - python ../setup.py test
 - cd ..
-#before_deploy: cd scikit-learn/dist
-#deploy:
-#  provider: cloudfiles
-#  username: travis-worker
-#  api_key:
-#    secure: "YH0FqgMPfVmrqtJWxv614aiQxpBp3Gs+O47wj2lnAvFnb23IEWHrtqI6BAtpcRiZCY4WuvYprPv0nn7Lo9bJQYK25BS01/oEf3s67RUslnnWluBb5vcWzajoaQcweJRrSBDuuQeYpVs8XR5Dld0kMKsodbZVzAtThqywHCI+nBQ="
-#  region: ORD
-#  container: wheels
-#  skip_cleanup: true
-
+before_deploy: cd $REPO_DIR/dist
+deploy:
+  provider: cloudfiles
+  username: travis-worker
+  api_key:
+    secure: "lZW7U67gVsceiI+Ofi2n+X3BRyou8D/ul5BuJK0OBtt4aiccKzrUAb8vraHy6ED0l1t/j3GWfrg8jaP9G9BRGIfoDQROJ5w+BZ/pTL0p+OnJrqZkNNiG82qvEOSmlVrE+afl2YMeLKDou+uX1wuXp6xYaN9W/lJJW0qskS6D/aiPY7KwagFWv+QsUF07SpomMBiZ/EE4FsMJBhg9q7sUg/tG4mbiTgZY2jGx+R2u5ktq3zPr6MIzIqz+7vswMR/BTg2WJTDvxQTMpWGYihi3vOxX9ty0vIUKti0zHIcj6B8RYgiDoAC6P2OUtk2J1qHiyvAooi9Vm+WkPnxQqF+8EOXkbajvsuniwPwenmy6xYh7fmNxs4huxFb3H8FYC6qI1256cMXd9CssFCroeLuQoUa7sn1X+cmb2IjrE1mOyboIF6iQ5M31xcQBUzIuauONnx4xz58ASovYDfHc1RkhatBtaW2nKhjiti6uvs8kVgok/dzoGOExRblbN1IjpjmCvhDQh6WQryMupoUmjJWjIsgs1MfaMaT7jW8AM1as5beHoEJiB445KJTBIb61BHxyfXcneuUJrRmlM7F8Tw56Gpilwl7hE/ufd3teabJDdxV0J18r4Rq/HI8N5vh4YFvV3h+p4drEnZYPHV3narMj8nGnud65qXAFfp0e25cLY3c="
+  region: ORD
+  container: wheels
+  skip_cleanup: true
