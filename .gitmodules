@@ -4,3 +4,4 @@
 [submodule "gensim"]
 	path = gensim
 	url = https://github.com/piskvorky/gensim.git
+	branch = develop
