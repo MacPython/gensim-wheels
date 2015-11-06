@@ -44,5 +44,5 @@ deploy:
   region: ORD
   container: wheels
   skip_cleanup: true
-  on:
-    all_branches: true
+#  on:
+#    all_branches: true
