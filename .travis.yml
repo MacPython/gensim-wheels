@@ -9,10 +9,11 @@ env:
   matrix:
   # 2.6, 2.7, 3.3, 3.4 and 3.5
   # can't download - VERSION=2.6.8
-  - VERSION=2.7.10
+  - VERSION=2.7.11
   - VERSION=3.3.5
-  - VERSION=3.4.2
-  - VERSION=3.5.0
+  - VERSION=3.4.5
+  - VERSION=3.5.2
+  - VERSION=3.6.0
 install:
 - source terryfy/travis_tools.sh
 - get_python_environment macpython $VERSION venv
