@@ -17,7 +17,7 @@ env:
 install:
 - source terryfy/travis_tools.sh
 - get_python_environment macpython $VERSION venv
-- pip install numpy
+- pip install numpy scipy
 - pip install -U cython wheel six
 - if [ -n "$BUILD_COMMIT" ]; then
       checkout_commit $REPO_DIR $BUILD_COMMIT;
@@ -28,8 +28,8 @@ install:
 - pip install dist/*.whl
 - cd ..
 script:
-- if [ "${VERSION:0:3}" != "3.3" ]; then pip install -U numpy; fi
-- pip install nose scipy pyemd testfixtures unittest2
+# - if [ "${VERSION:0:3}" != "3.3" ]; then pip install -U numpy; fi
+- pip install nose pyemd testfixtures unittest2
 - mkdir tmp_for_test
 - cd tmp_for_test
 #  make sure we test the wheel
