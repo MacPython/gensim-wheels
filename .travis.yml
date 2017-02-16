@@ -29,7 +29,7 @@ install:
 - cd ..
 script:
 # - if [ "${VERSION:0:3}" != "3.3" ]; then pip install -U numpy; fi
-- pip install nose pyemd testfixtures unittest2
+- pip install nose pyemd testfixtures unittest2 morfessor
 - mkdir tmp_for_test
 - cd tmp_for_test
 #  make sure we test the wheel
