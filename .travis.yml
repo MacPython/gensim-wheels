@@ -27,7 +27,10 @@ install:
 - cd ..
 script:
 # - if [ "${VERSION:0:3}" != "3.3" ]; then pip install -U numpy; fi
-- pip install nose pyemd testfixtures unittest2 morfessor
+- pip install nose pyemd testfixtures unittest2 morfessor==2.0.2a4
+Collecting pyemd
+  Downloading pyemd-0.4.2.tar.gz (65kB)
+
 - mkdir tmp_for_test
 - cd tmp_for_test
 #  make sure we test the wheel
