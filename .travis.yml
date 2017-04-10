@@ -15,7 +15,7 @@ env:
 install:
 - source terryfy/travis_tools.sh
 - get_python_environment macpython $VERSION venv
-- pip install numpy scipy
+- pip install numpy scipy sklearn
 - pip install -U cython wheel six
 - if [ -n "$BUILD_COMMIT" ]; then
       checkout_commit $REPO_DIR $BUILD_COMMIT;
