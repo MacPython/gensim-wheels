@@ -27,7 +27,7 @@ install:
 - cd ..
 script:
 # - if [ "${VERSION:0:3}" != "3.3" ]; then pip install -U numpy; fi
-- pip install nose pyemd testfixtures unittest2 morfessor==2.0.2a4
+- pip install nose pyemd testfixtures unittest2 morfessor==2.0.2a4 sklearn
 
 - mkdir tmp_for_test
 - cd tmp_for_test
