@@ -46,7 +46,7 @@ install:
   - "python --version"
   - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
   - "git submodule update --init --recursive"
-  - "cd scikit-learn"
+  - "cd gensim"
   - "git checkout %BUILD_COMMIT%"
   - "git clean -fxd"
   - "git reset --hard"
