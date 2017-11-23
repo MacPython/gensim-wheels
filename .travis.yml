@@ -1,23 +1,12 @@
 env:
     global:
         - REPO_DIR=gensim
-        # Commit from your-project that you want to build
         - BUILD_COMMIT=1980109764f67513ef9740d39f2763aba6519ba2
-        # pip dependencies to _build_ your project
         - BUILD_DEPENDS="numpy==1.11.3 scipy==0.18.1 six smart_open"
-        # pip dependencies to _test_ your project.  Include any dependencies
-        # that you need, that are also specified in BUILD_DEPENDS, this will be
-        # a separate install.
-
         - TEST_DEPENDS="pytest pytest-rerunfailures cython pyemd testfixtures scikit-learn Morfessor==2.0.2a4 annoy"
-        #### - WHEELHOUSE_UPLOADER_USERNAME=travis-worker
-        # Following generated with
-        # travis encrypt -r your-org/your-project-wheels WHEELHOUSE_UPLOADER_SECRET=<the api key>
-        # This is for Rackspace uploads.  Contact Matthew Brett, or the
-        # scikit-learn team, for # permission (and the API key) to upload to
-        # the Rackspace account used here, or use your own account.
-        #### - secure:
-        ####     "MNKyBWOzu7JAUmC0Y+JhPKfytXxY/ADRmUIMEWZV977FLZPgYctqd+lqel2QIFgdHDO1CIdTSymOOFZckM9ICUXg9Ta+8oBjSvAVWO1ahDcToRM2DLq66fKg+NKimd2OfK7x597h/QmUSl4k8XyvyyXgl5jOiLg/EJxNE2r83IA="
+        - WHEELHOUSE_UPLOADER_USERNAME="Lev.Konstantinovskiy"
+        - secure: qXqY3dFmLOqvxa3Om2gQi/BjotTOK+EP2IPLolBNo0c61yDtNWxbmE4wH3up72Be
+
 
 language: python
 # The travis Python version is unrelated to the version we build and test
@@ -87,7 +76,6 @@ before_install:
     - before_install
 
 install:
-    # Maybe get and clean and patch source
     - clean_code $REPO_DIR $BUILD_COMMIT
     - build_wheel $REPO_DIR $PLAT
 
@@ -95,7 +83,6 @@ script:
     - install_run $PLAT
 
 after_success:
-    # Upload wheels to Rackspace container
     - pip install wheelhouse-uploader
     - echo ${TRAVIS_BUILD_DIR}/wheelhouse/
     - ls -laht ${TRAVIS_BUILD_DIR}/wheelhouse/

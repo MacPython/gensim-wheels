@@ -78,16 +78,11 @@ test_script:
   - "cd ../gensim/dist"
   - "ls"
 
+
 artifacts:
   # Archive the generated wheel package in the ci.appveyor.com build report.
   - path: dist\*
 
-cache:
-  # Use the appveyor cache to avoid re-downloading large archives such
-  # the MKL numpy and scipy wheels mirrored on a rackspace cloud
-  # container, speed up the appveyor jobs and reduce bandwidth
-  # usage on our rackspace account.
-  - '%APPDATA%\pip\Cache'
 
 notifications:
   - provider: Email
