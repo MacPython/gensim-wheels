@@ -57,7 +57,7 @@ install:
   - ps: "ls dist"
 
   # Install the generated wheel package to test it
-  - "pip install --pre --no-index --find-links dist/ gensim"
+  - "pip install --pre --no-index --force-reinstall --find-links dist/ gensim"
 
 build: false
 
@@ -66,7 +66,7 @@ test_script:
   # installed library.
   - "mkdir empty_folder"
   - "cd empty_folder"
-  - "pytest --pyargs gensim"
+  - "pytest --pyargs gensim -v"
   - "cd .."
 
 artifacts:
