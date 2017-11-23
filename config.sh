@@ -16,5 +16,5 @@ function run_tests {
 
     python -c 'import gensim; print(gensim.__file__, gensim.models.word2vec.FAST_VERSION)'
     pip freeze
-    pytest -rfxEXs --durations=20 --showlocals --rerun 3 --pyargs gensim
+    pytest -rfxEXs --durations=20 --showlocals --rerun 3 --pyargs gensim -vv
 }
