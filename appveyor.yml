@@ -67,11 +67,11 @@ test_script:
   - "mkdir empty_folder"
   - "cd empty_folder"
   - "pytest --pyargs gensim -v"
-  - "cd .."
+  - "cd ../dist"
 
 artifacts:
   # Archive the generated wheel package in the ci.appveyor.com build report.
-  - path: dist\*
+  - path: *
 
 cache:
   # Use the appveyor cache to avoid re-downloading large archives such
