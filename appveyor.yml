@@ -64,10 +64,11 @@ build: false
 test_script:
   # Change to a non-source folder to make sure we run the tests on the
   # installed library.
+  - "cd .."
   - "mkdir empty_folder"
   - "cd empty_folder"
-  - "pytest --pyargs gensim -v"
-  - "cd ../dist"
+  - "pytest -rfxEXs --durations=20 --showlocals --rerun 3 --pyargs gensim -v"
+  - "cd ../gensim/dist"
 
 artifacts:
   # Archive the generated wheel package in the ci.appveyor.com build report.
