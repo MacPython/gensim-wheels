@@ -14,6 +14,10 @@ function run_tests {
         pip install "tensorflow<=1.3.0" "keras>=2.0.4"  # additional deps, available only for x64
     fi
 
+    if [[ "$IS_OSX" -eq 0 ]]; then
+        pip install annoy  # annoy works only with linux
+    fi
+
     python -c 'import gensim; print(gensim.__file__, gensim.models.word2vec.FAST_VERSION)'
     pip freeze
     pytest -rfxEXs --durations=20 --showlocals --rerun 3 --pyargs gensim -vv

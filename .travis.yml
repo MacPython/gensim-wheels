@@ -3,7 +3,7 @@ env:
         - REPO_DIR=gensim
         - BUILD_COMMIT=1980109764f67513ef9740d39f2763aba6519ba2
         - BUILD_DEPENDS="numpy==1.11.3 scipy==0.18.1 six smart_open"
-        - TEST_DEPENDS="pytest pytest-rerunfailures cython pyemd testfixtures scikit-learn Morfessor==2.0.2a4 annoy"
+        - TEST_DEPENDS="pytest pytest-rerunfailures cython pyemd testfixtures scikit-learn Morfessor==2.0.2a4"
         - WHEELHOUSE_UPLOADER_USERNAME="Lev.Konstantinovskiy"
         - secure: qXqY3dFmLOqvxa3Om2gQi/BjotTOK+EP2IPLolBNo0c61yDtNWxbmE4wH3up72Be
 
