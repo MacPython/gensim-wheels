@@ -74,7 +74,7 @@ test_script:
   - "cd .."
   - "mkdir empty_folder"
   - "cd empty_folder"
-  - "pytest -rfxEXs --durations=20 --showlocals --rerun 3 --pyargs gensim -v"
+  - "pytest -rfxEXs --durations=20 --showlocals --rerun 3 --pyargs gensim"
   - "cd ../gensim/dist"
   - "dir"
 
