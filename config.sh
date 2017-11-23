@@ -10,6 +10,10 @@ function pre_build {
 function run_tests {
     # Runs tests on installed distribution from an empty directory
     python --version
+    if [ "$PLAT" = "x86_64" ]; then
+        pip install "tensorflow<=1.3.0" "keras>=2.0.4"  # additional deps, available only for x64
+    fi
+
     python -c 'import gensim; print(gensim.__file__, gensim.models.word2vec.FAST_VERSION)'
     pip freeze
     pytest -rfxEXs --durations=20 --showlocals --rerun 3 --pyargs gensim
