@@ -80,3 +80,9 @@ cache:
   # container, speed up the appveyor jobs and reduce bandwidth
   # usage on our rackspace account.
   - '%APPDATA%\pip\Cache'
+
+notifications:
+  - provider: Email
+    to: ivan+gensimwheels@rare-technologies.com
+    on_build_success: true
+    on_build_failure: true
