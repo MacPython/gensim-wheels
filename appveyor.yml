@@ -76,11 +76,11 @@ test_script:
   - "cd empty_folder"
   - "pytest -rfxEXs --durations=20 --showlocals --rerun 3 --pyargs gensim"
   - "cd ../gensim/dist"
-  - "dir"
+  - "ls"
 
 artifacts:
   # Archive the generated wheel package in the ci.appveyor.com build report.
-  - path: "*"
+  - path: dist\*
 
 cache:
   # Use the appveyor cache to avoid re-downloading large archives such
