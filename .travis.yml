@@ -2,6 +2,7 @@ env:
     global:
         - REPO_DIR=gensim
         - BUILD_COMMIT=1980109764f67513ef9740d39f2763aba6519ba2
+        - UNICODE_WIDTH=32
         - BUILD_DEPENDS="numpy==1.11.3 scipy==0.18.1 six smart_open"
         - TEST_DEPENDS="pytest pytest-rerunfailures cython pyemd testfixtures scikit-learn Morfessor==2.0.2a4"
 
@@ -26,17 +27,29 @@ matrix:
 
     # Linux 
     - os: linux
-      env: 
+      env:
         - MB_PYTHON_VERSION=2.7
         - PLAT=x86_64
 
     - os: linux
-      env: 
+      env:
         - MB_PYTHON_VERSION=2.7
         - PLAT=i686
 
     - os: linux
-      env: 
+      env:
+        - MB_PYTHON_VERSION=2.7
+        - PLAT=x86_64
+        - UNICODE_WIDTH=16
+
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=2.7
+        - PLAT=i686
+        - UNICODE_WIDTH=16
+
+    - os: linux
+      env:
         - MB_PYTHON_VERSION=3.5
         - PLAT=x86_64
 
