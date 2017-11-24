@@ -40,8 +40,6 @@ matrix:
 
 
 install:
-  # Install Python (from the official .msi of http://python.org) and pip when
-  # not already installed.
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - "python -m pip install -U pip setuptools wheel wheelhouse_uploader"
 
@@ -56,7 +54,7 @@ install:
 
 
   # Install the build and runtime dependencies of the project.
-  - "%CMD_IN_ENV% pip install --timeout=60 --trusted-host 28daf2247a33ed269873-7b1aad3fab3cc330e1fd9d109892382a.r6.cf2.rackcdn.com --find-links http://28daf2247a33ed269873-7b1aad3fab3cc330e1fd9d109892382a.r6.cf2.rackcdn.com/ numpy==1.11.3 scipy==0.18.1 smart_open pytest pytest-rerunfailures cython pyemd testfixtures scikit-learn Morfessor==2.0.2a4"
+  - "%CMD_IN_ENV% pip install --timeout=60 --trusted-host 8003f898b26602186ccc-7b1aad3fab3cc330e1fd9d109892382a.ssl.cf2.rackcdn.com/ --find-links https://8003f898b26602186ccc-7b1aad3fab3cc330e1fd9d109892382a.ssl.cf2.rackcdn.com/ numpy==1.11.3 scipy==0.18.1 smart_open pytest pytest-rerunfailures cython pyemd testfixtures scikit-learn Morfessor==2.0.2a4"
   - "%CMD_IN_ENV% python setup.py bdist_wheel bdist_wininst"
   - ps: "ls dist"
 
