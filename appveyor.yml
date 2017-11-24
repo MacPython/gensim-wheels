@@ -42,7 +42,6 @@ matrix:
 install:
   # Install Python (from the official .msi of http://python.org) and pip when
   # not already installed.
-  - "powershell ./appveyor/install.ps1"
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - "python -m pip install -U pip setuptools wheel wheelhouse_uploader"
 
