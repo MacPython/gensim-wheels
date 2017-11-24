@@ -44,7 +44,7 @@ install:
   # not already installed.
   - "powershell ./appveyor/install.ps1"
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-  - "python -m pip install -U pip setuptools wheel"
+  - "python -m pip install -U pip setuptools wheel wheelhouse_uploader"
 
   # Check that we have the expected version and architecture for Python
   - "python --version"
@@ -88,7 +88,6 @@ on_success:
   # Upload the generated wheel package to Rackspace
   # On Windows, Apache Libcloud cannot find a standard CA cert bundle so we
   # disable the ssl checks.
-  - "pip install wheelhouse_uploader"
   - "python -m wheelhouse_uploader upload --no-ssl-check --local-folder=.  gensim-wheels"
 
 
