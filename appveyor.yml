@@ -1,6 +1,6 @@
 environment:
   global:
-    BUILD_COMMIT: 3.2.0
+    BUILD_COMMIT: add5fa244cfb93fcab581c16b537c67dbd72e3da
     # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
     # /E:ON and /V:ON options are not enabled in the batch script intepreter
     # See: http://stackoverflow.com/a/13751649/163740
@@ -71,7 +71,7 @@ test_script:
   - "cd .."
   - "mkdir empty_folder"
   - "cd empty_folder"
-  - "pytest -rfxEXs --durations=20 --showlocals --rerun 3 --pyargs gensim"
+  - "pytest -rfxEXs --durations=20 --showlocals --reruns 3 --reruns-delay 1 --pyargs gensim"
   - "cd ../gensim/dist"
   - "ls"
 
