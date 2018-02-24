@@ -1,7 +1,7 @@
 env:
     global:
         - REPO_DIR=gensim
-        - BUILD_COMMIT=72d4ff81b37720e287ae37958e138934fcdae7ac
+        - BUILD_COMMIT=e8219677203eec63a3de5c95bd7296d5140521d3
         - UNICODE_WIDTH=32
         - BUILD_DEPENDS="numpy==1.11.3 scipy==0.18.1 six smart_open"
         - TEST_DEPENDS="pytest pytest-rerunfailures mock cython pyemd testfixtures scikit-learn Morfessor==2.0.2a4"
@@ -73,11 +73,13 @@ matrix:
       language: generic
       env:
         - MB_PYTHON_VERSION=2.7
+        - SKIP_NETWORK_TESTS=1
 
     - os: osx
       language: generic
       env:
         - MB_PYTHON_VERSION=3.5
+        - SKIP_NETWORK_TESTS=1
 
     - os: osx
       language: generic
