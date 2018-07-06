@@ -59,7 +59,7 @@ install:
   - ps: "ls dist"
 
   # Install the generated wheel package to test it
-  - "pip install --pre --no-index --force-reinstall --timeout=60 --trusted-host 8003f898b26602186ccc-7b1aad3fab3cc330e1fd9d109892382a.ssl.cf2.rackcdn.com/ --find-links dist/ gensim"
+  - "pip install --pre --force-reinstall --timeout=60 --trusted-host 8003f898b26602186ccc-7b1aad3fab3cc330e1fd9d109892382a.ssl.cf2.rackcdn.com/ --find-links dist/ gensim"
 
 
 build: false
