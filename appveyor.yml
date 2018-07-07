@@ -59,7 +59,7 @@ install:
   - ps: "ls dist"
 
   # Install the generated wheel package to test it
-  ## - "pip install --pre --no-index --force-reinstall --find-links dist/ gensim"
+  - "pip install --pre --no-index --no-dependencies --force-reinstall --find-links dist/ gensim"
 
 
 build: false
@@ -71,7 +71,7 @@ test_script:
   - "cd .."
   - "mkdir empty_folder"
   - "cd empty_folder"
-  ## - "pytest -rfxEXs --durations=20 --showlocals --reruns 3 --reruns-delay 1 --pyargs gensim"
+  - "pytest -rfxEXs --durations=20 --showlocals --reruns 3 --reruns-delay 1 --pyargs gensim"
   - "cd ../gensim/dist"
   - "ls"
 
