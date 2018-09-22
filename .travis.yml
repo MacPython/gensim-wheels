@@ -26,79 +26,82 @@ matrix:
   include:
 
     # Linux 
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=2.7
-        - PLAT=x86_64
+    # - os: linux
+    #   env:
+    #     - MB_PYTHON_VERSION=2.7
+    #     - PLAT=x86_64
+
+    # - os: linux
+    #   env:
+    #     - MB_PYTHON_VERSION=2.7
+    #     - PLAT=i686
+
+    # - os: linux
+    #   env:
+    #     - MB_PYTHON_VERSION=2.7
+    #     - PLAT=x86_64
+    #     - UNICODE_WIDTH=16
+
+    # - os: linux
+    #   env:
+    #     - MB_PYTHON_VERSION=2.7
+    #     - PLAT=i686
+    #     - UNICODE_WIDTH=16
+
+    # - os: linux
+    #   env:
+    #     - MB_PYTHON_VERSION=3.5
+    #     - PLAT=x86_64
+
+    # - os: linux
+    #   env: 
+    #     - MB_PYTHON_VERSION=3.5
+    #     - PLAT=i686
+
+    # - os: linux
+    #   env: 
+    #     - MB_PYTHON_VERSION=3.6
+    #     - PLAT=x86_64
+
+    # - os: linux
+    #   env: 
+    #     - MB_PYTHON_VERSION=3.6
+    #     - PLAT=i686
 
     - os: linux
       env:
-        - MB_PYTHON_VERSION=2.7
-        - PLAT=i686
-
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=2.7
-        - PLAT=x86_64
-        - UNICODE_WIDTH=16
-
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=2.7
-        - PLAT=i686
-        - UNICODE_WIDTH=16
-
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=3.5
-        - PLAT=x86_64
-
-    - os: linux
-      env: 
-        - MB_PYTHON_VERSION=3.5
-        - PLAT=i686
-
-    - os: linux
-      env: 
-        - MB_PYTHON_VERSION=3.6
-        - PLAT=x86_64
-
-    - os: linux
-      env: 
-        - MB_PYTHON_VERSION=3.6
-        - PLAT=i686
-
-    - os: linux
-      env:
+        - BUILD_DEPENDS="numpy==1.14.5 scipy==1.1.0 six smart_open"
         - MB_PYTHON_VERSION=3.7
         - PLAT=x86_64
 
     - os: linux
       env:
+        - BUILD_DEPENDS="numpy==1.14.5 scipy==1.1.0 six smart_open"
         - MB_PYTHON_VERSION=3.7
         - PLAT=i686
 
     # MacOS
-    - os: osx
-      language: generic
-      env:
-        - MB_PYTHON_VERSION=2.7
-        - SKIP_NETWORK_TESTS=1
+    # - os: osx
+    #   language: generic
+    #   env:
+    #     - MB_PYTHON_VERSION=2.7
+    #     - SKIP_NETWORK_TESTS=1
+
+    # - os: osx
+    #   language: generic
+    #   env:
+    #     - MB_PYTHON_VERSION=3.5
+    #     - SKIP_NETWORK_TESTS=1
+
+    # - os: osx
+    #   language: generic
+    #   env:
+    #     - MB_PYTHON_VERSION=3.6
 
     - os: osx
       language: generic
       env:
-        - MB_PYTHON_VERSION=3.5
-        - SKIP_NETWORK_TESTS=1
-
-    - os: osx
-      language: generic
-      env:
-        - MB_PYTHON_VERSION=3.6
-
-    - os: osx
-      language: generic
-      env:
+        - BUILD_DEPENDS="numpy==1.14.5 scipy==1.1.0 six smart_open"
         - MB_PYTHON_VERSION=3.7
 
 
