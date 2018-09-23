@@ -81,6 +81,7 @@ test_script:
   - "cd .."
   - "mkdir empty_folder"
   - "cd empty_folder"
+  - "SET PYTHONHASHSEED=1"
   - "pytest -rfxEXs --hashseed 1 --durations=20 --disable-warnings  --showlocals --reruns 3 --reruns-delay 1 --pyargs gensim"
   - "cd ../gensim/dist"
   - "ls"
