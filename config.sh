@@ -20,5 +20,5 @@ function run_tests {
 
     python -c 'import gensim; print(gensim.__file__, gensim.models.word2vec.FAST_VERSION)'
     pip freeze
-    PYTHONHASHSEED=2 pytest -rfxEXs --durations=20 --disable-warnings --showlocals --reruns 3 --reruns-delay 1 --pyargs gensim
+    PYTHONHASHSEED=3 pytest -rfxEXs --durations=20 --disable-warnings --showlocals --reruns 3 --reruns-delay 1 --pyargs gensim
 }
