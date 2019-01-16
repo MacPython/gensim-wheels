@@ -1,7 +1,7 @@
 env:
     global:
         - REPO_DIR=gensim
-        - BUILD_COMMIT=3.6.0
+        - BUILD_COMMIT=33ce1a33ffcb72eb15651bb5c531e4e333f80776
         - UNICODE_WIDTH=32
         - GLOBAL_DEPENDS="six smart_open"
         - BUILD_DEPENDS="numpy==1.11.3 scipy==0.18.1 ${GLOBAL_DEPENDS}"
