@@ -1,7 +1,7 @@
 env:
     global:
         - REPO_DIR=gensim
-        - BUILD_COMMIT=3.7.0
+        - BUILD_COMMIT=e87343421d8d58fd45b01077129174b1d8c09b8c
         - UNICODE_WIDTH=32
         - GLOBAL_DEPENDS="six smart_open"
         - TEST_COMMON="pytest pytest-rerunfailures mock cython pyemd testfixtures scikit-learn Morfessor==2.0.2a4 python-Levenshtein>=0.10.2"
