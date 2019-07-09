@@ -4,7 +4,7 @@ env:
         - BUILD_COMMIT=3.8.0
         - UNICODE_WIDTH=32
         - GLOBAL_DEPENDS="six smart_open"
-        - TEST_COMMON="pytest pytest-rerunfailures mock cython pyemd testfixtures scikit-learn Morfessor==2.0.2a4 python-Levenshtein>=0.10.2"
+        - TEST_COMMON="pytest pytest-rerunfailures mock cython testfixtures scikit-learn Morfessor==2.0.2a4 python-Levenshtein>=0.10.2"
         - BUILD_DEPENDS="numpy==1.11.3 scipy==0.18.1 ${GLOBAL_DEPENDS}"
         - TEST_DEPENDS="${BUILD_DEPENDS} ${TEST_COMMON}"
         - MACOSX_DEPLOYMENT_TARGET=10.7
