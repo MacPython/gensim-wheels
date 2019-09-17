@@ -108,6 +108,6 @@ artifacts:
 
 notifications:
   - provider: Email
-    to: ivan+gensimwheels@rare-technologies.com
+    to: penkov+gensimwheels@pm.me
     on_build_success: true
     on_build_failure: true
