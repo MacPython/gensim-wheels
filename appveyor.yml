@@ -76,6 +76,20 @@ build: false
 
 
 test_script:
+  # Upload the generated wheel package to Rackspace
+  #
+  # We do this _before_ we run tests to prevent test failures from blocking a
+  # release.  This is a good idea because at this stage, because we have
+  # already done sufficient testing prior to making the release.  Furthermore,
+  # failures at this point may be caused by AppVeyor weirdness like running out
+  # of memory.  Finally, even if the failures are caused by a bug in the new
+  # release, we've already committed to making the release, and it's too late
+  # to turn back.  Even if the release is broken, we're better off building
+  # wheels for it and dealing with the problem in a subsequent bugfix release.
+  #
+  # On Windows, Apache Libcloud cannot find a standard CA cert bundle so we
+  # disable the ssl checks.
+  - "python -m wheelhouse_uploader upload --no-ssl-check --local-folder=.  gensim-wheels"
   # Change to a non-source folder to make sure we run the tests on the
   # installed library.
   - "cd .."
@@ -90,13 +104,6 @@ test_script:
 artifacts:
   # Archive the generated wheel package in the ci.appveyor.com build report.
   - path: "gensim\\dist\\*"
-
-
-on_success:
-  # Upload the generated wheel package to Rackspace
-  # On Windows, Apache Libcloud cannot find a standard CA cert bundle so we
-  # disable the ssl checks.
-  - "python -m wheelhouse_uploader upload --no-ssl-check --local-folder=.  gensim-wheels"
 
 
 notifications:
