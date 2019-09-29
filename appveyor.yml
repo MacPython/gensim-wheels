@@ -89,6 +89,8 @@ test_script:
   #
   # On Windows, Apache Libcloud cannot find a standard CA cert bundle so we
   # disable the ssl checks.
+  - "cd dist"
+  - "ls"
   - "python -m wheelhouse_uploader upload --no-ssl-check --local-folder=.  gensim-wheels"
   # Change to a non-source folder to make sure we run the tests on the
   # installed library.
@@ -97,8 +99,6 @@ test_script:
   # - "cd empty_folder"
   # - "SET PYTHONHASHSEED=1"
   # - "pytest -rfxEXs --durations=20 --disable-warnings --showlocals --reruns 3 --reruns-delay 1 --pyargs gensim"
-  # - "cd ../gensim/dist"
-  # - "ls"
 
 
 artifacts:
