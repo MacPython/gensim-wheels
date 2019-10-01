@@ -54,7 +54,7 @@ install:
 
 
   # Install the build and runtime dependencies of the project.
-  - cmd: IF "%PYTHON_VERSION%"=="3.7.0" (%CMD_IN_ENV% pip install --timeout=60 numpy==1.14.5 scipy==1.1.0) ELSE (%CMD_IN_ENV% pip install --timeout=60 numpy==1.11.3 scipy==0.18.1)
+  - cmd: IF "%PYTHON_VERSION%"=="3.7.0" (%CMD_IN_ENV% pip install --timeout=60 numpy==1.14.5 scipy==1.1.0) ELSE (%CMD_IN_ENV% pip install --timeout=60 numpy==1.11.3 scipy==1.0.0)
   - "%CMD_IN_ENV% pip install --timeout=60 smart_open pytest pytest-rerunfailures mock cython testfixtures scikit-learn Morfessor==2.0.2a4 python-Levenshtein>=0.10.2"
   - "%CMD_IN_ENV% python setup.py bdist_wheel bdist_wininst"
   - ps: "ls dist"
