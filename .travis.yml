@@ -30,32 +30,6 @@ matrix:
     # Linux
     - os: linux
       env:
-        - MB_PYTHON_VERSION=2.7
-        - PLAT=x86_64
-        - SKIP_NETWORK_TESTS=1
-
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=2.7
-        - PLAT=i686
-        - SKIP_NETWORK_TESTS=1
-
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=2.7
-        - PLAT=x86_64
-        - UNICODE_WIDTH=16
-        - SKIP_NETWORK_TESTS=1
-
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=2.7
-        - PLAT=i686
-        - UNICODE_WIDTH=16
-        - SKIP_NETWORK_TESTS=1
-
-    - os: linux
-      env:
         - MB_PYTHON_VERSION=3.5
         - PLAT=x86_64
         - SKIP_NETWORK_TESTS=1
@@ -94,12 +68,6 @@ matrix:
         - SKIP_NETWORK_TESTS=1
 
     # MacOS
-    - os: osx
-      language: generic
-      env:
-        - MB_PYTHON_VERSION=2.7
-        - SKIP_NETWORK_TESTS=1
-
     - os: osx
       language: generic
       env:
@@ -144,6 +112,6 @@ after_success:
 
 notifications:
   email:
-    - ivan+gensimwheels@rare-technologies.com
+    - penkov+gensimwheels@pm.me
   on_success: always
   on_failure: always
