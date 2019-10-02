@@ -5,7 +5,7 @@ env:
         - UNICODE_WIDTH=32
         - GLOBAL_DEPENDS="six smart_open"
         - TEST_COMMON="pytest pytest-rerunfailures mock cython testfixtures scikit-learn Morfessor==2.0.2a4 python-Levenshtein>=0.10.2"
-        - BUILD_DEPENDS="numpy==1.11.3 scipy==0.18.1 ${GLOBAL_DEPENDS}"
+        - BUILD_DEPENDS="numpy==1.11.3 scipy==1.0.0 ${GLOBAL_DEPENDS}"
         - TEST_DEPENDS="${BUILD_DEPENDS} ${TEST_COMMON}"
         - MACOSX_DEPLOYMENT_TARGET=10.7
         - WHEELHOUSE_UPLOADER_USERNAME="Lev.Konstantinovskiy"
