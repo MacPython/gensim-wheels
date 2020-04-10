@@ -5,9 +5,10 @@ environment:
     # /E:ON and /V:ON options are not enabled in the batch script intepreter
     # See: http://stackoverflow.com/a/13751649/163740
     CMD_IN_ENV: "cmd /E:ON /V:ON /C ..\\appveyor\\run_with_env.cmd"
-    WHEELHOUSE_UPLOADER_USERNAME: "Lev.Konstantinovskiy"
+    WHEELHOUSE_UPLOADER_USERNAME:
+      secure: 5XWj5Siu0pGOPKzx6VOe/mq23+9vbvzBsAA+UFvtFvw=
     WHEELHOUSE_UPLOADER_SECRET:
-      secure: qXqY3dFmLOqvxa3Om2gQi/BjotTOK+EP2IPLolBNo0c61yDtNWxbmE4wH3up72Be
+      secure: CKjewPPfH6vXYbZYZnF+w05yoA4HUwOcxmxnahDzT3xlB1F5kx9ng0u8mDUR++Wh
 
   matrix:
     - PYTHON: "C:\\Python35"
@@ -82,7 +83,7 @@ test_script:
   # disable the ssl checks.
   - "cd dist"
   - "ls"
-  - "python -m wheelhouse_uploader upload --no-ssl-check --local-folder=.  gensim-wheels"
+  - "python -m wheelhouse_uploader upload --no-ssl-check --local-folder=.  gensim-wheels --provider S3"
   # Change to a non-source folder to make sure we run the tests on the
   # installed library.
   # - "cd .."
