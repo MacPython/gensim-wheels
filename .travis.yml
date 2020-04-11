@@ -92,8 +92,6 @@ install:
     - build_wheel $REPO_DIR $PLAT
 
 script:
-    - echo @@@ "${BUILD_DEPENDS}"
-    - echo @@@ "${TEST_DEPENDS}"
     - install_run $PLAT
 
 after_success:
