@@ -76,10 +76,9 @@ test_script:
 
 # Upload wheels at the end of process (no matters, success or fail)
 on_finish:
-  - "pwd"
   - "ls -laht ../gensim/dist/"
   # TODO: uncomment me back before merge ('wheelhouse_uploader' takes too much time for upload, meh)
-  # - "cd dst/"
+  # - "cd ../gensim/dist/"
   # - "python -m wheelhouse_uploader upload --no-ssl-check --local-folder=.  gensim-wheels --provider S3"
 
 notifications:
