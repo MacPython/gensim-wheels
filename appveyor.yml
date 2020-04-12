@@ -64,7 +64,13 @@ install:
   - "pip install --pre --no-index --no-dependencies --force-reinstall --find-links dist/ gensim"
 
 
-build: false
+build:
+  # Upload wheels after we build them
+  #
+  - "ls -laht dist/"
+  # TODO: uncomment me back before merge ('wheelhouse_uploader' takes too much time for upload, meh)
+  # - "cd dst/"
+  # - "python -m wheelhouse_uploader upload --no-ssl-check --local-folder=.  gensim-wheels --provider S3"
 
 
 test_script:
@@ -73,12 +79,7 @@ test_script:
   - "cd empty_folder"
   - "SET PYTHONHASHSEED=1"
   - "pytest -rfxEXs --durations=20 --disable-warnings --showlocals --reruns 3 --reruns-delay 1 --pyargs gensim"
-  - "cd ../gensim/dist"
-  - "ls"
-  - "python -m wheelhouse_uploader upload --no-ssl-check --local-folder=.  gensim-wheels --provider S3"
 
-on_finish:
-  - appveyor PushArtifact "gensim\\dist\\*"
 
 notifications:
   - provider: Email
