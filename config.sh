@@ -15,7 +15,7 @@ function run_tests {
     fi
 
     if [[ "$IS_OSX" -eq 0 ]]; then
-        pip install annoy python-Levenshtein>=0.10.2 Morfessor==2.0.2a4
+        pip install annoy
     fi
 
     python -c 'import gensim; print(gensim.__file__, gensim.models.word2vec.FAST_VERSION)'
