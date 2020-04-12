@@ -94,7 +94,7 @@ install:
 script:
     - install_run $PLAT
 
-after_success:
+after_script:
     - pip install wheelhouse-uploader
     - echo ${TRAVIS_BUILD_DIR}/wheelhouse/
     - ls -laht ${TRAVIS_BUILD_DIR}/wheelhouse/
