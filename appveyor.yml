@@ -92,11 +92,8 @@ test_script:
   # - "SET PYTHONHASHSEED=1"
   # - "pytest -rfxEXs --durations=20 --disable-warnings --showlocals --reruns 3 --reruns-delay 1 --pyargs gensim"
 
-
-artifacts:
-  # Archive the generated wheel package in the ci.appveyor.com build report.
-  - path: "gensim\\dist\\*"
-
+on_finish:
+  - appveyor PushArtifact "gensim\\dist\\*"
 
 notifications:
   - provider: Email
