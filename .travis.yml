@@ -97,19 +97,13 @@ script:
 # Upload wheels at the end of process (no matters, success or fail)
 after_success:
     - ls -laht ${TRAVIS_BUILD_DIR}/wheelhouse/
-    # TODO: uncomment me back before merge ('wheelhouse_uploader' takes too much time for upload, meh)
-    # - pip install wheelhouse-uploader
-    # - echo ${TRAVIS_BUILD_DIR}/wheelhouse/
-    # - ls -laht ${TRAVIS_BUILD_DIR}/wheelhouse/
-    # - python -m wheelhouse_uploader upload --local-folder ${TRAVIS_BUILD_DIR}/wheelhouse/ --no-ssl-check gensim-wheels --provider S3
+    - pip install wheelhouse-uploader
+    - python -m wheelhouse_uploader upload --local-folder ${TRAVIS_BUILD_DIR}/wheelhouse/ --no-ssl-check gensim-wheels --provider S3
 
 after_failure:
     - ls -laht ${TRAVIS_BUILD_DIR}/wheelhouse/
-    # TODO: uncomment me back before merge ('wheelhouse_uploader' takes too much time for upload, meh)
-    # - pip install wheelhouse-uploader
-    # - echo ${TRAVIS_BUILD_DIR}/wheelhouse/
-    # - ls -laht ${TRAVIS_BUILD_DIR}/wheelhouse/
-    # - python -m wheelhouse_uploader upload --local-folder ${TRAVIS_BUILD_DIR}/wheelhouse/ --no-ssl-check gensim-wheels --provider S3
+    - pip install wheelhouse-uploader
+    - python -m wheelhouse_uploader upload --local-folder ${TRAVIS_BUILD_DIR}/wheelhouse/ --no-ssl-check gensim-wheels --provider S3
 
 
 notifications:
