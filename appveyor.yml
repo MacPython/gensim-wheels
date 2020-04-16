@@ -1,6 +1,6 @@
 environment:
   global:
-    BUILD_COMMIT: 3.8.2
+    BUILD_COMMIT: a2ec4c3417717f65c6d7eae5c1fcdc6db8a54159
     # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
     # /E:ON and /V:ON options are not enabled in the batch script intepreter
     # See: http://stackoverflow.com/a/13751649/163740
@@ -66,37 +66,19 @@ install:
 
 build: false
 
-
 test_script:
-  # Upload the generated wheel package to Rackspace
-  #
-  # We do this _before_ we run tests to prevent test failures from blocking a
-  # release.  This is a good idea because at this stage, because we have
-  # already done sufficient testing prior to making the release.  Furthermore,
-  # failures at this point may be caused by AppVeyor weirdness like running out
-  # of memory.  Finally, even if the failures are caused by a bug in the new
-  # release, we've already committed to making the release, and it's too late
-  # to turn back.  Even if the release is broken, we're better off building
-  # wheels for it and dealing with the problem in a subsequent bugfix release.
-  #
-  # On Windows, Apache Libcloud cannot find a standard CA cert bundle so we
-  # disable the ssl checks.
-  - "cd dist"
-  - "ls"
-  - "python -m wheelhouse_uploader upload --no-ssl-check --local-folder=.  gensim-wheels --provider S3"
-  # Change to a non-source folder to make sure we run the tests on the
-  # installed library.
-  # - "cd .."
-  # - "mkdir empty_folder"
-  # - "cd empty_folder"
-  # - "SET PYTHONHASHSEED=1"
-  # - "pytest -rfxEXs --durations=20 --disable-warnings --showlocals --reruns 3 --reruns-delay 1 --pyargs gensim"
+  - "cd .."
+  - "mkdir empty_folder"
+  - "cd empty_folder"
+  - "SET PYTHONHASHSEED=1"
+  - "python -c \"from gensim.models.word2vec import FAST_VERSION as FV_W2V; from gensim.models.fasttext import FAST_VERSION as FV_FT; print('FAST_VERSION (word2vec): {}, FAST_VERSION (fasttext): {}'.format(FV_W2V, FV_FT)); assert FV_W2V >= 0, FV_W2V; assert FV_FT >= 0, FV_FT\""
+  - "pytest -rfxEXs --durations=20 --disable-warnings --showlocals --reruns 3 --reruns-delay 1 --pyargs gensim"
 
 
-artifacts:
-  # Archive the generated wheel package in the ci.appveyor.com build report.
-  - path: "gensim\\dist\\*"
-
+# Upload wheels at the end of process (no matters, success or fail)
+on_finish:
+  - "ls -laht ../gensim/dist/"
+  - "python -m wheelhouse_uploader upload --no-ssl-check --local-folder=../gensim/dist/  gensim-wheels --provider S3"
 
 notifications:
   - provider: Email

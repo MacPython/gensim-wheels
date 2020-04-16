@@ -15,10 +15,18 @@ function run_tests {
     fi
 
     if [[ "$IS_OSX" -eq 0 ]]; then
-        pip install annoy python-Levenshtein>=0.10.2 Morfessor==2.0.2a4
+        pip install annoy
     fi
 
-    python -c 'import gensim; print(gensim.__file__, gensim.models.word2vec.FAST_VERSION)'
+    python -c \
+"""
+from gensim.models.word2vec import FAST_VERSION as FV_W2V
+from gensim.models.fasttext import FAST_VERSION as FV_FT
+print('FAST_VERSION (word2vec): {}, FAST_VERSION (fasttext): {}'.format(FV_W2V, FV_FT))
+
+assert FV_W2V >= 0, FV_W2V
+assert FV_FT >= 0, FV_FT
+"""
     pip freeze
     pytest -rfxEXs --durations=20 --disable-warnings --showlocals --reruns 3 --reruns-delay 1 --pyargs gensim
 }
