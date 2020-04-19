@@ -28,5 +28,9 @@ assert FV_W2V >= 0, FV_W2V
 assert FV_FT >= 0, FV_FT
 """
     pip freeze
+
+    python -W ignore -m unittest gensim.test.test_corpora || true
+    echo "=========================="
     pytest -rfxEXs --durations=20 --disable-warnings --showlocals --reruns 3 --reruns-delay 1 --pyargs gensim.test.test_corpora
+
 }
