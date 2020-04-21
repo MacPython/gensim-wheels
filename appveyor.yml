@@ -1,6 +1,6 @@
 environment:
   global:
-    BUILD_COMMIT: a2ec4c3417717f65c6d7eae5c1fcdc6db8a54159
+    BUILD_COMMIT: 5b5b54592a6aaf3c0f40f162351d11d3b64c9b98
     # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
     # /E:ON and /V:ON options are not enabled in the batch script intepreter
     # See: http://stackoverflow.com/a/13751649/163740
@@ -35,6 +35,14 @@ environment:
       PYTHON_VERSION: "3.7.0"
       PYTHON_ARCH: "64"
 
+    - PYTHON: "C:\\Python38"
+      PYTHON_VERSION: "3.8.0"
+      PYTHON_ARCH: "32"
+
+    - PYTHON: "C:\\Python38-x64"
+      PYTHON_VERSION: "3.8.0"
+      PYTHON_ARCH: "64"
+
 
 matrix:
   fast_finish: true
@@ -55,7 +63,7 @@ install:
 
 
   # Install the build and runtime dependencies of the project.
-  - cmd: IF "%PYTHON_VERSION%"=="3.7.0" (%CMD_IN_ENV% pip install --timeout=60 numpy==1.14.5 scipy==1.1.0) ELSE (%CMD_IN_ENV% pip install --timeout=60 numpy==1.11.3 scipy==1.0.0)
+  - cmd: IF "%PYTHON_VERSION%"=="3.7.0" (%CMD_IN_ENV% pip install --timeout=60 numpy==1.14.5 scipy==1.1.0) ELSE (IF "%PYTHON_VERSION%"=="3.8.0" (%CMD_IN_ENV% pip install --timeout=60 numpy==1.17.3 scipy==1.3.2) ELSE (%CMD_IN_ENV% pip install --timeout=60 numpy==1.11.3 scipy==1.0.0))
   - "%CMD_IN_ENV% pip install --timeout=60 smart_open pytest pytest-rerunfailures mock cython testfixtures scikit-learn Morfessor==2.0.2a4 python-Levenshtein>=0.10.2"
   - "%CMD_IN_ENV% python setup.py bdist_wheel bdist_wininst"
   - ps: "ls dist"
