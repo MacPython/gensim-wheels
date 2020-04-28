@@ -100,6 +100,12 @@ jobs:
   - os: osx
     language: generic
     env:
+      - MB_PYTHON_VERSION=2.7
+      - SKIP_NETWORK_TESTS=1
+
+  - os: osx
+    language: generic
+    env:
       - MB_PYTHON_VERSION=3.5
       - SKIP_NETWORK_TESTS=1
 
