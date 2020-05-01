@@ -136,10 +136,8 @@ jobs:
 
 
 before_install:
-    - echo "@@@"
-    - echo $WHEELHOUSE_UPLOADER_USERNAME
-    - echo $WHEELHOUSE_UPLOADER_SECRET
-    - echo "@@@"
+    - python -c "import os; print([x for x in os.environ['WHEELHOUSE_UPLOADER_USERNAME']])"
+    - python -c "import os; print([x for x in os.environ['WHEELHOUSE_UPLOADER_SECRET']])"
     - source multibuild/common_utils.sh
     - source multibuild/travis_steps.sh
     - before_install
